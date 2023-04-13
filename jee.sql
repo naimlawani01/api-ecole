@@ -14,6 +14,21 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
+
+-- Listage de la structure de la base pour jee
+CREATE DATABASE IF NOT EXISTS `jee` /*!40100 DEFAULT CHARACTER SET utf32 */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `jee`;
+
+-- Listage de la structure de table jee. voiture
+CREATE TABLE IF NOT EXISTS `voiture` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `color` varchar(255) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `price` double DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `UK_rnr3gebna2xikoxlfqe4ppr36` (`name`)
+) ENGINE=InnoDB AUTO_INCREMENT=101 DEFAULT CHARSET=utf32;
+
 -- Les données exportées n'étaient pas sélectionnées.
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
