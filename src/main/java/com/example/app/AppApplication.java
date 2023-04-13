@@ -1,6 +1,8 @@
 package com.example.app;
 
+import com.example.app.dao.EcoleRepository;
 import com.example.app.dao.VoitureRepository;
+import com.example.app.model.Ecole;
 import com.example.app.model.Voiture;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -14,6 +16,8 @@ import java.util.Random;
 public class AppApplication implements CommandLineRunner {
 	@Autowired
 	private VoitureRepository voitureRepository;
+	@Autowired
+	private EcoleRepository ecoleRepository;
 	public static void main(String[] args) {
 		SpringApplication.run(AppApplication.class, args);
 
@@ -22,7 +26,7 @@ public class AppApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		for (int i= 0; i<=99; i++){
+		for (int i= 0; i<=20; i++){
 			String[] arrayColor= {"Rouge","Blanc","Bleu"};
 			int rnd = new Random().nextInt(arrayColor.length);
 
@@ -38,16 +42,12 @@ public class AppApplication implements CommandLineRunner {
 
 
 			Voiture v = new Voiture(generatedString, 100.0 + i,arrayColor[rnd] );
+			Ecole e = new Ecole(generatedString, generatedString, generatedString);
 
 
 
-			voitureRepository.save(v);
+			ecoleRepository.save(e);
 		}
-		List all = voitureRepository.findAll();
-		for(int i=0;i<all.size();i++){
-			Voiture myV = (Voiture) all.get(i);
 
-			System.out.println(i + 1+": Name: "+ myV.getName()+ " Prix: "+myV.getPrice()+ " Color: "+myV.getColor());
-		}
 	}
 }

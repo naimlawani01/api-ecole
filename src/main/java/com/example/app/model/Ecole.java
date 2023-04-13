@@ -60,5 +60,9 @@ public class Ecole {
     public void setContact(String contact) {
         this.contact = contact;
     }
+
+    public List<Classroom> getClassrooms() {
+        return classrooms;
+    }
 }
 
