@@ -1,9 +1,11 @@
 package com.example.app.model;
 
+import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
+@Entity
 public class Classroom {
 	
 
@@ -22,7 +24,9 @@ public class Classroom {
 	    this.level = level;
 	}
 
+	public Classroom() {
 
+	}
 
 
 	public String getName() {
