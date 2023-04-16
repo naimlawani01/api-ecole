@@ -2,7 +2,7 @@ package com.example.app.model;
 
 import jakarta.persistence.*;
 
-
+@Entity
 public class Speciality {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -13,6 +13,10 @@ public class Speciality {
 
     public Speciality(String name) {
         this.name = name;
+    }
+
+    public Speciality() {
+
     }
 
     public Long getId() {
