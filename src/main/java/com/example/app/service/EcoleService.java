@@ -14,7 +14,7 @@ public class EcoleService {
     private EcoleRepository ecoleRepository;
 
     //Add a Get method for getting every data
-    public Iterable<Ecole> getEcole() {
+    public Iterable<Ecole> getEcoles() {
         return ecoleRepository.findAll();
     }
 
