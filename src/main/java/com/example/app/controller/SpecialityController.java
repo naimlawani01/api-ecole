@@ -13,14 +13,14 @@ public class SpecialityController {
     private SpecialityService specialityService;
 
     //Get ALL Speciality
-    @GetMapping("/speciality")
+    @GetMapping("/specialities")
     public  Iterable<Speciality> getSpecialities() {
 
         return specialityService.getSpecialities();
     }
 
     //Post Speciality
-    @PostMapping(value = "/speciality" , consumes = {"application/json"})
+    @PostMapping(value = "/specialities" , consumes = {"application/json"})
     public Speciality addSpeciality(@RequestBody Speciality speciality){
 
         return specialityService.addSpeciality(speciality);
@@ -28,20 +28,20 @@ public class SpecialityController {
     }
 
     // Get Speciality by id
-    @GetMapping("/speciality/{id}")
+    @GetMapping("/specialities/{id}")
     public Optional<Speciality> getSpeciality(@PathVariable String id) {
         return specialityService.getSpeciality(Integer.parseInt(id));
     }
 
     // Delete Speciality by id
-    @DeleteMapping("/speciality/{id}")
+    @DeleteMapping("/specialities/{id}")
     public String deleteSpeciality(@PathVariable String id) {
         specialityService.deleteSpeciality(Long.valueOf(Integer.parseInt(id)));
         return "Succesfull delete";
     }
 
     //Update Speciality
-    @PatchMapping("/speciality/{id}")
+    @PatchMapping("/specialities/{id}")
     public String updateSpeciality(@PathVariable String id, @RequestBody Speciality speciality) {
         Speciality speciality1 = specialityService.getSpeciality(Integer.parseInt(id)).get();
 

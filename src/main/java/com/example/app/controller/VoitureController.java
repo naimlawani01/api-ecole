@@ -26,19 +26,19 @@ public class VoitureController {
 
     }
     // Get voiture by id
-    @GetMapping("/voiture/{id}")
+    @GetMapping("/voitures/{id}")
     public Optional<Voiture> getVoiture(@PathVariable String id) {
         return voitureService.getVoiture(Integer.parseInt(id));
     }
     // Delete voiture by id
-    @DeleteMapping("/voiture/{id}")
+    @DeleteMapping("/voitures/{id}")
     public String deleteVoiture(@PathVariable String id) {
          voitureService.deleteVoiture(Long.valueOf(Integer.parseInt(id)));
         return "Succesfull delete";
     }
 
     //Update Voiture
-    @PatchMapping("/voiture/{id}")
+    @PatchMapping("/voitures/{id}")
     public String updateVoiture(@PathVariable String id, @RequestBody Voiture voiture) {
         Voiture voiture1 = voitureService.getVoiture(Integer.parseInt(id)).get();
 

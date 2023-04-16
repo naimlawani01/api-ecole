@@ -16,25 +16,25 @@ public class EcoleController {
     private EcoleService ecoleService;
 
     // GET method for getting all school
-    @GetMapping ("/ecole")
+    @GetMapping ("/ecoles")
     public Iterable<Ecole> getEcoles() {
         return ecoleService.getEcoles();
     }
 
     // Post method for sending school
-    @PostMapping(value  = "/ecole", consumes = {"application/json"})
+    @PostMapping(value  = "/ecoles", consumes = {"application/json"})
     public Ecole addEcole(@RequestBody Ecole ecole) {
         return ecoleService.addEcole(ecole);
     }
 
     // Get method by id
-    @GetMapping ("/ecole/{id}")
+    @GetMapping ("/ecoles/{id}")
     public Optional<Ecole> getEcole(@PathVariable String id) {
             return ecoleService.getEcole(Long.parseLong(id));
     }
 
     // Delete by ID
-    @DeleteMapping ("/ecole/{id}")
+    @DeleteMapping ("/ecoles/{id}")
     public String deleteEcole(@PathVariable String id){
         ecoleService.deleteEcole(Long.valueOf(id));
 
@@ -43,7 +43,7 @@ public class EcoleController {
     }
 
     //Update method ID
-    @PatchMapping ("/Ecole/{id}")
+    @PatchMapping ("/ecoles/{id}")
     public String updateEcole(@PathVariable String id, @RequestBody Ecole ecole) {
         Ecole oldValueEcole = ecoleService.getEcole(Long.valueOf(id)).get();
         String name = ecole.getName();
@@ -60,7 +60,7 @@ public class EcoleController {
     }
 
     // Get All Classroom for each school
-   @GetMapping ("/ecole/{id}/classroom")
+   @GetMapping ("/ecoles/{id}/classrooms")
     public Iterable<Classroom> getEcoleClassrooms(@PathVariable String id) {
         return ecoleService.getEcole(Long.valueOf(id)).get().getClassrooms();
     }
