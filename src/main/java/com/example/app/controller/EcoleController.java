@@ -3,9 +3,7 @@ package com.example.app.controller;
 import com.example.app.model.Classroom;
 import com.example.app.model.Ecole;
 import com.example.app.service.EcoleService;
-import jakarta.persistence.Id;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
