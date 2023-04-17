@@ -19,6 +19,10 @@ public class Classroom {
 	@ManyToOne()
 	private Ecole ecole;
 
+	public void setEcole(Ecole ecole) {
+		this.ecole = ecole;
+	}
+
 	public Long getId() {
 		return id;
 	}
