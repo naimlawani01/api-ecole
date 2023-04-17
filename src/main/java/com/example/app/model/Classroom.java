@@ -1,9 +1,8 @@
 package com.example.app.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 @Entity
 public class Classroom {
@@ -15,6 +14,10 @@ public class Classroom {
 	private String name;
 	private Integer size;
 	private String level;
+	@OnDelete(action = OnDeleteAction.CASCADE)
+	@JoinColumn(name="ecole_id", nullable=false)
+	@ManyToOne()
+	private Ecole ecole;
 	
 
 
@@ -67,6 +70,10 @@ public class Classroom {
 	public void setLevel(String level) {
 		this.level = level;
 	}
-	
+
+
+	public Ecole getEcole() {
+		return ecole;
+	}
 }
 

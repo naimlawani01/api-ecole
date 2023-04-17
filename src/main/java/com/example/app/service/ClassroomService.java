@@ -13,7 +13,7 @@ public class ClassroomService {
     private ClassroomRepository classroomRepository;
 
     //Get ALL Classroom
-    public Iterable<Classroom> getVoitures() {
+    public Iterable<Classroom> getClassrooms() {
         return classroomRepository.findAll();
     }
     //Post classroom
@@ -22,8 +22,8 @@ public class ClassroomService {
         return savedClassroom;
     }
     // Get classroom by id
-    public Optional<Classroom> getClassroom(int id) {
-        return  classroomRepository.findById(Long.valueOf(id));
+    public Optional<Classroom> getClassroom(Long id) {
+        return  classroomRepository.findById(id);
     }
 
     //Delete Classroom (id)
@@ -31,4 +31,6 @@ public class ClassroomService {
     	classroomRepository.deleteById(id);
         return null;
     }
+
+
 }

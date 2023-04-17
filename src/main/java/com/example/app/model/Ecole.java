@@ -17,8 +17,6 @@ public class Ecole {
     private String address;
     private String contact;
 
-    @OneToMany
-    private List<Classroom> classrooms = new ArrayList<>();
     public Ecole() {
 
     }
@@ -61,8 +59,8 @@ public class Ecole {
         this.contact = contact;
     }
 
-    public List<Classroom> getClassrooms() {
-        return classrooms;
-    }
+//    public List<Classroom> getClassrooms() {
+//        return classrooms;
+//    }
 }
 

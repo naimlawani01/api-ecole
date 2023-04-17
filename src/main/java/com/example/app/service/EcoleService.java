@@ -1,9 +1,12 @@
 package com.example.app.service;
 
+import com.example.app.dao.ClassroomRepository;
 import com.example.app.dao.EcoleRepository;
+import com.example.app.model.Classroom;
 import com.example.app.model.Ecole;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.Optional;
 
@@ -12,6 +15,9 @@ public class EcoleService {
 
     @Autowired
     private EcoleRepository ecoleRepository;
+
+    @Autowired
+    private ClassroomRepository classroomRepository;
 
     //Add a Get method for getting every data
     public Iterable<Ecole> getEcoles() {
@@ -38,5 +44,12 @@ public class EcoleService {
         return null;
     }
 
+//    public Iterable<Classroom> getEcoleClassrooms(Integer integer) {
+//        return eco
+//    }
+
+    public Iterable<Classroom> getEcoleClassrooms(Integer id) {
+        return classroomRepository.findByEcoleId(Long.valueOf(id));
+    }
 
 }

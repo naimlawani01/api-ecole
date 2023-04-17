@@ -59,10 +59,10 @@ public class EcoleController {
         return "Success update";
     }
 
-    // Get All Classroom for each school
+//     Get All Classroom for each school
    @GetMapping ("/ecoles/{id}/classrooms")
     public Iterable<Classroom> getEcoleClassrooms(@PathVariable String id) {
-        return ecoleService.getEcole(Long.valueOf(id)).get().getClassrooms();
+        return ecoleService.getEcoleClassrooms(Integer.valueOf(id));
     }
 
 }
