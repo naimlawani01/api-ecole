@@ -43,7 +43,8 @@ public class EcoleController {
     }
 
     //Update method ID
-    @PatchMapping ("/ecoles/{id}")
+    @CrossOrigin(origins = "http://localhost:3000")
+    @PatchMapping (value="/ecoles/{id}", consumes = {"application/json"})
     public String updateEcole(@PathVariable String id, @RequestBody Ecole ecole) {
         Ecole oldValueEcole = ecoleService.getEcole(Long.valueOf(id)).get();
         String name = ecole.getName();
