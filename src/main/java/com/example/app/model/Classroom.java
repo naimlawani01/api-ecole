@@ -18,8 +18,22 @@ public class Classroom {
 	@JoinColumn(name="ecole_id", nullable=false)
 	@ManyToOne()
 	private Ecole ecole;
-	
 
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public Classroom(Long id, String name, Integer size, String level, Ecole ecole) {
+		this.id = id;
+		this.name = name;
+		this.size = size;
+		this.level = level;
+		this.ecole = ecole;
+	}
 
 	public Classroom(String name, Integer size, String level) {
 	    this.name = name;

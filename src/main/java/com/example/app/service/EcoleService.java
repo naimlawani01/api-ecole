@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -48,8 +50,14 @@ public class EcoleService {
 //        return eco
 //    }
 
-    public Iterable<Classroom> getEcoleClassrooms(Integer id) {
-        return classroomRepository.findByEcoleId(Long.valueOf(id));
+    public List<Classroom> getEcoleClassrooms(Integer id) {
+
+        List<Object[]> result = classroomRepository.findAllByEcoleId(Long.valueOf(id));
+        List<Classroom> classrooms = new ArrayList<>();
+        for (Object[] row : result) {
+            classrooms.add(new Classroom((Long) row[0], (String) row[1], (Integer) row[2], (String) row[3], (Ecole) row[4]));
+        }
+        return classrooms;
     }
 
 }
