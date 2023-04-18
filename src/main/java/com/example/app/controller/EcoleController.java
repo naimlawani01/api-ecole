@@ -24,7 +24,7 @@ public class EcoleController {
     // GET method for getting all school
     @GetMapping ("/ecoles")
     public Iterable<Ecole> getEcoles(@RequestParam(defaultValue = "0") int page) {
-        Pageable pageable = PageRequest.of(page, 10);
+        Pageable pageable = PageRequest.of(page, 9);
         Page<Ecole> ecolesPage = ecoleRepository.findAll(pageable);
         return ecolesPage;
     }

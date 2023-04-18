@@ -72,6 +72,6 @@ public class ClassroomController {
         classroom1.setLevel(level);
         classroom1.setSize(size);
         classroomService.addClassroom(classroom1);
-        return "Succesfull delete";
+        return "Succesfull Update";
     }
 }
