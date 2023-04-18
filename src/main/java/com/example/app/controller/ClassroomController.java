@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 
@@ -30,13 +31,15 @@ public class ClassroomController {
 
     // Post method for sending school
     @PostMapping(value  = "/classroms/{ecoleId}", consumes = {"application/json"})
-    public ResponseEntity<Classroom> addClassrom(@PathVariable Long ecoleId, @RequestBody Classroom classroom ) {
+    public ResponseEntity<List<Classroom>> addClassrom(@PathVariable Long ecoleId,  @RequestBody List<Classroom> classrooms ) {
         Optional<Ecole> optionalEcole = ecoleRepository.findById(ecoleId);
         if (optionalEcole.isPresent()) {
             Ecole ecole = optionalEcole.get();
-            classroom.setEcole(ecole);
-            Classroom savedClassroom = classroomRepository.save(classroom);
-            return ResponseEntity.ok(savedClassroom);
+            for (Classroom classroom : classrooms) {
+                classroom.setEcole(ecole);
+            }
+            List<Classroom> savedClassrooms = classroomRepository.saveAll(classrooms);
+            return ResponseEntity.ok(savedClassrooms);
         } else {
             return ResponseEntity.notFound().build();
         }
